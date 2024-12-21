@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <persistence-unit name="gestiondette">
+        <class>gestiondette.models.User</class>
+        <class>gestiondette.models.Client</class>
+        <class>gestiondette.models.Article</class>
+        <class>gestiondette.models.Debt</class>
+        <class>gestiondette.models.DetailDebt</class>
+        <class>gestiondette.models.Payment</class>
+        <class>gestiondette.models.DebtRequest</class>
+        <class>gestiondette.models.DetailDebtRequest</class>
+        <properties>
+            <!-- Configuration de la base de données -->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/gestionDetteJava" />
+            <property name="javax.persistence.jdbc.user" value="app" />
+            <property name="javax.persistence.jdbc.password" value="root" />
+
+            <!-- Gestion des schémas -->
+            <property name="javax.persistence.schema-generation.database.action" value="update" />
+
+            <!-- Logging SQL pour le débogage -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            
+            <!-- Dialecte PostgreSQL -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+        </properties>
+    </persistence-unit>
+</persistence>

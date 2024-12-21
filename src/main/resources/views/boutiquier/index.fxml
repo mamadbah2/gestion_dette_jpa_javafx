@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml"
+    fx:controller="gestiondette.controllers.BoutiquierController">
+    <tabs>
+        <!-- Onglet Gestion des Clients -->
+        <Tab text="Gestion des Clients">
+            <VBox spacing="10">
+                <HBox spacing="10">
+                    <TextField fx:id="surname" promptText="Nom" />
+                    <TextField fx:id="telephone" promptText="Téléphone" />
+                    <TextField fx:id="adresse" promptText="Adresse" />
+                    <CheckBox fx:id="hasAccount" text="A un compte" />
+                </HBox>
+                <HBox spacing="10">
+                    <TextField fx:id="clientLogin" promptText="Login"
+                        disable="${!hasAccount.selected}" />
+                    <PasswordField fx:id="clientPassword" promptText="Mot de passe"
+                        disable="${!hasAccount.selected}" />
+                </HBox>
+                <Button text="Créer Client" onAction="#createClient" />
+                <TableView fx:id="clientsTable">
+                    <columns>
+                        <TableColumn fx:id="colNom" text="Nom" />
+                        <TableColumn fx:id="colTelephone" text="Téléphone" />
+                        <TableColumn fx:id="colAdresse" text="Adresse" />
+                        <TableColumn fx:id="colCumulMontantsDus" text="Cumul des montants dus" />
+                        <TableColumn fx:id="colAUnCompte" text="A un compte" />
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <TextField fx:id="searchPhone" promptText="Rechercher par téléphone" />
+                    <Button text="Rechercher" onAction="#searchClient" />
+                </HBox>
+                <CheckBox fx:id="filterWithAccount" text="Filtrer clients avec compte"
+                    onAction="#filterClients" />
+                <Button text="Réinitialiser" onAction="#resetTable" />
+
+            </VBox>
+        </Tab>
+
+        <!-- Onglet Gestion des Dettes -->
+        <Tab text="Gestion des Dettes">
+            <VBox spacing="10">
+                <HBox spacing="10">
+                    <TextField fx:id="clientTelephone" promptText="Téléphone du client" />
+                    <DatePicker fx:id="debtDate" promptText="Date" />
+                    <TextField fx:id="debtAmount" disable="true" promptText="Montant" />
+                    <TextField fx:id="paidAmount" promptText="Montant versé" />
+                </HBox>
+                <TableView fx:id="debtArticlesTable">
+                    <columns>
+                        <TableColumn fx:id="colLibelle" text="Article" />
+                        <TableColumn fx:id="colQte" text="Quantité" />
+                        <TableColumn fx:id="colPrix" text="Prix" />
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <TextField fx:id="articleName" promptText="Nom de l'article"/>
+                    <TextField fx:id="articleQuantity" promptText="Quantité"/>
+                    <TextField fx:id="articlePrice" disable="true" promptText="Prix"/>
+                </HBox>
+                <Button text="Ajouter Article" onAction="#addArticleToDebt" />
+                <Button text="Créer Dette" onAction="#createDebt" />
+                <TableView fx:id="clientDebtsTable">
+                    <columns>
+                        <TableColumn fx:id="idListe"  text="Id" />
+                        <TableColumn fx:id="dateDette"  text="Date" />
+                        <TableColumn fx:id="montantDette" text="Montant" />
+                        <TableColumn fx:id="montantVerseDette" text="Montant versé" />
+                        <TableColumn fx:id="montantRestantDette" text="Montant restant" />
+                        <TableColumn fx:id="nomClientDette" text="Nom client"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button text="Voir Articles" onAction="#viewDebtArticles" />
+                    <Button text="Voir Paiements" onAction="#viewDebtPayments" />
+                </HBox>
+                <HBox spacing="10">
+                    <TextField fx:id="idDette" promptText="L'id de la dette" />
+                    <TextField fx:id="paymentAmount" promptText="Montant du paiement" />
+                    <Button text="Enregistrer Paiement" onAction="#recordPayment" />
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- Onglet Demandes de Dettes -->
+        <!-- <Tab text="Demandes de Dettes">
+            <VBox spacing="10">
+                <HBox spacing="10">
+                    <ComboBox fx:id="debtRequestStatus" promptText="Filtrer par état">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="En Cours" />
+                                <String fx:value="Annulé" />
+                                <String fx:value="Validée" />
+                                <String fx:value="Rejetée" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <Button text="Appliquer Filtre" onAction="#filterDebtRequests" />
+                </HBox>
+                <TableView fx:id="debtRequestsTable">
+                    <columns>
+                        <TableColumn text="Client" />
+                        <TableColumn text="Date" />
+                        <TableColumn text="Montant" />
+                        <TableColumn text="État" />
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button text="Voir Articles" onAction="#viewRequestArticles" />
+                    <Button text="Valider Dette" onAction="#validateDebtRequest" />
+                    <Button text="Refuser Dette" onAction="#rejectDebtRequest" />
+                </HBox>
+                <TableView fx:id="requestArticlesTable">
+                    <columns>
+                        <TableColumn text="Article" />
+                        <TableColumn text="Quantité demandée" />
+                        <TableColumn text="Quantité disponible" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab> -->
+    </tabs>
+</TabPane>

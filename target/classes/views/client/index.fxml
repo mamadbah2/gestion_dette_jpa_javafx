@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/fxml"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="gestiondette.controllers.ClientController"
+    spacing="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+
+    <Label text="Mes Dettes Non Soldées" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+
+    <TableView fx:id="unsolvedDebtsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colMontantDette" text="Montant Initial" prefWidth="150" />
+            <TableColumn fx:id="colMontantRestant" text="Montant Restant" prefWidth="150" />
+            <TableColumn fx:id="colMontantPaye" text="Montant Payé" prefWidth="150" />
+            <TableColumn fx:id="colDateDette" text="Date de la Dette" prefWidth="150" />
+        </columns>
+    </TableView>
+
+    <Label text="Mes Demandes de Dettes" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+
+    <TableView fx:id="debtReequestsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colMontantTotalDemande" text="Montant Demandé" prefWidth="200" />
+            <TableColumn fx:id="colDateDemande" text="Date de la Demande" prefWidth="200" />
+            <TableColumn fx:id="colStatusDemande" text="Statut" prefWidth="150" />
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Nouvelle Demande de Dette"
+            onAction="#makeDebtRequest"
+            style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+        <Button text="Relancer Demande"
+            style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+    </HBox>
+</VBox>

@@ -1,0 +1,16 @@
+gestiondette/repositories/impl/DebtRepositoryImplJpa.class
+gestiondette/core/enums/Role.class
+gestiondette/repositories/RepositoryImpl.class
+gestiondette/JpaUtil.class
+gestiondette/entities/Debt.class
+gestiondette/entities/Client.class
+module-info.class
+gestiondette/repositories/DebtRequestRepository.class
+gestiondette/core/Repository.class
+gestiondette/entities/Article.class
+gestiondette/entities/DebtRequest.class
+gestiondette/entities/User.class
+gestiondette/repositories/DebtRepository.class
+gestiondette/entities/DetailDebt.class
+gestiondette/entities/DetailDebtRequest.class
+gestiondette/entities/Payment.class
